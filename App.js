@@ -1,10 +1,11 @@
 import React from 'react';
-import {StyleSheet, View, StatusBar, Text} from 'react-native';
-// import MusicPlayer from './src/components/MusicPlayer';
+import {StyleSheet, View, StatusBar} from 'react-native';
+import MusicPlayer from './src/components/MusicPlayer';
 const App = () => {
   return (
     <View style={styles.container}>
-      <Text>App MusicPlayer</Text>
+      <StatusBar barStyle="light-content" />
+      <MusicPlayer />
     </View>
   );
 };
