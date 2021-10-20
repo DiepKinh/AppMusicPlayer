@@ -2,12 +2,13 @@ import React from 'react';
 import {StyleSheet, View, StatusBar} from 'react-native';
 import MusicPlayer from './src/components/MusicPlayer';
 import WeatherApp from './src/components/WeatherApp';
+import Navigation3 from './src/components/Navigation3';
 
 const App = () => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
-      <WeatherApp />
+      <Navigation3 />
     </View>
   );
 };
