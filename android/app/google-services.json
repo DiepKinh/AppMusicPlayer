@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "574585051097-kjdh8vpuh2fabeqir53m0cnbpqn4pgtj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appmusicplayer",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
           "client_id": "574585051097-dcg7qutismrhh0lkuntfhrfn8b4tm7i2.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,14 @@
             {
               "client_id": "574585051097-dcg7qutismrhh0lkuntfhrfn8b4tm7i2.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "574585051097-4ss57frtoot7pmucpdbvvfvg5pprsefs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.diepkinh.AppMusicPlayer"
+              }
             }
-
           ]
         }
       }
