@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  Platform,
 } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -14,8 +15,11 @@ import FormButton from '../components/Login/FormButton';
 import FormInput from '../components/Login/FormInput';
 import SocialButton from '../components/Login/SocialButton';
 
+import {AuthContext} from '../navigation/AuthProvider';
+
 import {windowHeight, windowWidth} from '../utils/Dimentions';
 const LoginScreen = ({navigation}) => {
+  const {login} = useContext(AuthContext);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -27,43 +31,66 @@ const LoginScreen = ({navigation}) => {
       />
       <Text style={styles.text}>RN Social App</Text>
       <FormInput
+        labelValue={email}
+        onChangerText={userEmail => setEmail(userEmail)}
         placeholderText="Email"
         iconType="user"
         autoCapitalize="none"
         autoCorrect={false}
-        labelValue={email}
-        onChangerText={userEmail => setEmail(userEmail)}
       />
       <FormInput
+        labelValue={password}
+        onChangerText={userPassword => setPassword(userPassword)}
         placeholderText="Password"
         iconType="lock"
         secureTextEntry={true}
-        labelValue={password}
-        onChangerText={userPassword => setPassword(userPassword)}
       />
+      {/* <TextInput
+        value={email}
+        style={styles.input}
+        numberOfLines={1}
+        onChangerText={setEmail}
+        placeholder="Email"
+        placeholderTextColor="#666"
+      />
+      <TextInput
+        value={password}
+        style={styles.input}
+        numberOfLines={1}
+        onChangerText={setPassword}
+        placeholder="Password"
+        placeholderTextColor="#666"
+      /> */}
       <FormButton
         buttonTitle="Sign in"
-        onPress={() => alert('Sign in Clicked!')}
+        onPress={() => login(email, password)}
       />
+
       <TouchableOpacity
         style={styles.forgotButton}
         onPress={() => alert('Forgot Password?')}>
         <Text style={styles.navButtonText}>Forgot Password?</Text>
       </TouchableOpacity>
-      <SocialButton
-        buttonTitle="Sign In with Facebook"
-        btnType="facebook"
-        color="#4867aa"
-        backgroundColor="#e6eaf4"
-        onPress={() => {}}
-      />
-      <SocialButton
-        buttonTitle="Sign In with Google"
-        btnType="google"
-        color="#de4d41"
-        backgroundColor="#f5e7ea"
-        onPress={() => {}}
-      />
+
+      {Platform.OS === 'android' ? (
+        <View>
+          <SocialButton
+            buttonTitle="Sign In with Facebook"
+            btnType="facebook"
+            color="#4867aa"
+            backgroundColor="#e6eaf4"
+            onPress={() => {}}
+          />
+          <SocialButton
+            buttonTitle="Sign In with Google"
+            btnType="google"
+            color="#de4d41"
+            backgroundColor="#f5e7ea"
+            onPress={() => {}}
+          />
+        </View>
+      ) : null}
+
       <TouchableOpacity
         style={styles.forgotButton}
         onPress={() => navigation.navigate('Signup')}>
